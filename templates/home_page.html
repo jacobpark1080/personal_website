@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Personal HTML Page</title>
+  <meta name="description" content="My first page">
+  <meta name="keywords" content="html tutorial template">
+  <!-- default favicon -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body style="background-color:#00004d;">
+  <h1>This is Jacob's Website!</h1>
+  <img src="{{ url_for('static', filename='me.png') }}" alt='self portrait' style="width:33.3%;height:33.3%">
+  <p>I want to make this website to practice web development skills and showcase my interests and what I am working on.</p>
+  <p>I would like to add a background image and my scheduler app.</p>
+  <br>
+  <p>Here are a few links to check out my work and follow me</p>
+  <ul>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/jacob-p-park/">https://www.linkedin.com/in/jacob-p-park/</a></li>
+    <li>GitHub: <a href="https://github.com/jacobpark1080/">https://github.com/jacobpark1080/</a></li>
+    <li>Twitter: <a href="https://twitter.com/cali_buffalo">https://twitter.com/cali_buffalo</a></li>
+  </ul>
+  <p>And of course Pusheen</p>
+  <img src="https://wallpapercave.com/wp/wp2512717.jpg" alt='Pusheen the cat' width="500" height="300">
+</body>
+</html>
