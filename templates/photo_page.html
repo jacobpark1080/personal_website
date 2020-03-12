@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>My Personal Photos Page</title>
+  <meta name="description" content="Photos page">
+  <meta name="keywords" content="html tutorial template">
+  <!-- default favicon -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body style="background-color:#00004d;">
+  <h1>My Collection of Photos</h1>
+  <p>These are a bunch of photos I took while living in San Francisco</p>
+  <div class="row">
+    <div class="column" style="float:left">
+      <img src="{{ url_for('static', filename='images/IMG_4925.jpg') }}" alt='SF pic 1' style="width:100%;height:100%">
+    </div>
+    <div class="column" style="float:right">
+      <img src="{{ url_for('static', filename='images/IMG_1035.jpg') }}" alt='SF pic 2' style="width:100%;height:100%">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column" style="float:left">
+      <img src="{{ url_for('static', filename='images/IMG_1484.jpg') }}" alt='SF pic 3' style="width:100%;height:100%">
+    </div>
+    <div class="column" style="float:right">
+      <img src="{{ url_for('static', filename='images/IMG_5314.jpg') }}" alt='SF pic 4' style="width:100%;height:100%">
+    </div>
+  </div>
+</body>
+
+</html>

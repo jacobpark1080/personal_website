@@ -1,16 +1,17 @@
 <!doctype html>
 <html>
+
 <head>
   <title>My Personal HTML Page</title>
   <meta name="description" content="My first page">
   <meta name="keywords" content="html tutorial template">
   <!-- default favicon -->
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body style="background-color:#00004d;">
   <h1>This is Jacob's Website!</h1>
-  <img src="{{ url_for('static', filename='me.png') }}" alt='self portrait' style="width:33.3%;height:33.3%">
+  <img src="{{ url_for('static', filename='images/me.png') }}" alt='self portrait' style="width:33.3%;height:33.3%">
   <p>I want to make this website to practice web development skills and showcase my interests and what I am working on.</p>
   <p>I would like to add a background image and my scheduler app.</p>
   <br>
