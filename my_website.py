@@ -14,6 +14,18 @@ def photos():
         "photo_page.html"
     )
 
+@app.route('/blog')
+def blog():
+    return render_template(
+        "blog_page.html"
+    )
+
+@app.route('/projects')
+def projects():
+    return render_template(
+        "projects_page.html"
+    )
+
 @app.route('/test')
 def testing():
     return 'Test Page'
