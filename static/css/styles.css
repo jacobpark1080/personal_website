@@ -1,3 +1,6 @@
+a {
+  color:red;
+}
 body {
   background-color: powderblue;
 }
@@ -13,22 +16,18 @@ ul {
   color: white;
   text-align: center;
 }
-a {
-  color:red;
-}
-
-.pushimg {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .column {
   float: left;
   width: 45%;
   padding: 2.5%;
 }
-
+.pusheen_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:20%;
+  height:20%;
+}
 /* Clearfix (clear floats) */
 .row::after {
   content: "";

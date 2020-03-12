@@ -10,19 +10,18 @@
 </head>
 <body style="background-color:#00004d;">
   <h1>This is Jacob's Website!</h1>
-  <img src="{{ url_for('static', filename='images/me.png') }}" alt='self portrait' style="width:25%;height:25%">
+  <div style="width:33%;float:left">
+    <img src="{{ url_for('static', filename='images/me.png') }}" alt='self portrait' style="width:100%;height:100%">
+  </div>
+  <div style="width:66%;float:right">
   <p>I want to make this website to practice web development skills and showcase my interests and what I am working on.</p>
-  <br>
   <p>What is going on with me inthe world can be summarized on my blog page.</p>
   <p><a href="./blog">Blog</a></p>
-  <br>
   <p>I would like to share my the work that I am doing while at the General Assembly bootcamp.</p>
   <p>My notebooks and the like.</p>
   <p><a href="./projects">Projects</a></p>
-  <br>
   <p>I also want to capture the beautiful San Francisco environment while I am here. Take a look at my Pictures Page</p>
   <p><a href="./photos" style="align:center">Photos</a></p>
-  <br>
   <p>Here are a few links to check out my work and follow me</p>
   <ul>
     <li>LinkedIn: <a href="https://www.linkedin.com/in/jacob-p-park/">https://www.linkedin.com/in/jacob-p-park/</a></li>
@@ -30,6 +29,6 @@
     <li>Twitter: <a href="https://twitter.com/cali_buffalo">https://twitter.com/cali_buffalo</a></li>
   </ul>
   <p>And of course Pusheen</p>
-  <img class="pushimg" src="https://wallpapercave.com/wp/wp2512717.jpg" alt='Pusheen the cat' style="width:5%;height=2%">
+  <img class="pusheen_img" src="https://wallpapercave.com/wp/wp2512717.jpg" alt='Pusheen the cat'>
 </body>
 </html>
