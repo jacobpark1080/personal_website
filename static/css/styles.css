@@ -1,32 +1,62 @@
+:root {
+  --fontsize: 150%;
+  --textcolor: white;
+}
+
 a {
+  font-size:var(--fontsize)/2;
   color:red;
 }
+
 body {
   background-color: powderblue;
 }
+
+li {
+  font-size:var(--fontsize);
+}
+
 h1 {
-  color: white;
+  color: var(--textcolor);
   text-align: center;
 }
+
+h2 {
+  color: var(--textcolor);
+  text-align: center;
+}
+
 p {
-  color: white;
+  font-size:var(--fontsize);
+  color: var(--textcolor);
   text-align: center;
 }
+
 ul {
-  color: white;
+  color: var(--textcolor);
   text-align: center;
 }
+
 .column {
   float: left;
   width: 45%;
   padding: 2.5%;
 }
+
 .pusheen_img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width:20%;
   height:20%;
+}
+
+.text {
+  margin: 0 auto;
+  text-align: center;
+  width:50%;
+  display:block;
+  position:relative;
 }
 /* Clearfix (clear floats) */
 .row::after {

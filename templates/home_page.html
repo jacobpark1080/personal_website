@@ -8,27 +8,39 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
+
 <body style="background-color:#00004d;">
-  <h1>This is Jacob's Website!</h1>
-  <div style="width:33%;float:left">
+  <div style="float:left;width:25%;margin-left:auto">
+    <img src="{{ url_for('static', filename='images/IMG_3125.JPG') }}" alt='SF City' style="width:100%;height:100%">
+  </div>
+  <div style="float:right;width:25%;margin-right:auto">
+    <img src="{{ url_for('static', filename='images/IMG_4900.JPG') }}" alt='NY City' style="width:100%;height:100%">
+  </div>
+  <div class="text" style="margin-right:">
+    <img src="{{ url_for('static', filename='images/IMG_0947.JPG') }}" alt='The Future is...' style="width:90%;height:100%">
+  </div>
+  <br>
+  <h1>So Glad You Could Make It</h1>
+  <br>
+  <div style="width:66%;float:right">
+    <div class="text">
+      <h1>This is Jacob's Website!</h1>
+      <p>I want to make this website to practice web development skills and showcase my interests and what I am working on.</p>
+      <p>What is going on with me in the world can be summarized on my <a href="./blog">Blog Page</a>.</p>
+      <p>I can share my personal projects as well as notebooks and the like while at the General Assembly bootcamp <a href="./projects">Projects Page</a>.</p>
+      <p>I also want to capture the beautiful San Francisco environment while I am here, and show off my other adventures. Take a look at my <a href="./photos">Photos Page</a></p>
+      <p>I also have links to my social media and professional highlights. Connect and follow me!</p>
+      <ul style="width:50%">
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/jacob-p-park/">https://www.linkedin.com/in/jacob-p-park/</a></li>
+        <li>GitHub: <a href="https://github.com/jacobpark1080/">https://github.com/jacobpark1080/</a></li>
+        <li style="float:left">Twitter: <a href="https://twitter.com/cali_buffalo">https://twitter.com/cali_buffalo</a></li>
+      </ul>
+    </div>
+    <p>And of course Pusheen helps makes it feel like home(page)</p>
+    <img class="pusheen_img" src="https://wallpapercave.com/wp/wp2512717.jpg" alt='Pusheen the cat'>
+  </div>
+  <div class="vertical-center" style="width:25%;float:right">
     <img src="{{ url_for('static', filename='images/me.png') }}" alt='self portrait' style="width:100%;height:100%">
   </div>
-  <div style="width:66%;float:right">
-  <p>I want to make this website to practice web development skills and showcase my interests and what I am working on.</p>
-  <p>What is going on with me inthe world can be summarized on my blog page.</p>
-  <p><a href="./blog">Blog</a></p>
-  <p>I would like to share my the work that I am doing while at the General Assembly bootcamp.</p>
-  <p>My notebooks and the like.</p>
-  <p><a href="./projects">Projects</a></p>
-  <p>I also want to capture the beautiful San Francisco environment while I am here. Take a look at my Pictures Page</p>
-  <p><a href="./photos" style="align:center">Photos</a></p>
-  <p>Here are a few links to check out my work and follow me</p>
-  <ul>
-    <li>LinkedIn: <a href="https://www.linkedin.com/in/jacob-p-park/">https://www.linkedin.com/in/jacob-p-park/</a></li>
-    <li>GitHub: <a href="https://github.com/jacobpark1080/">https://github.com/jacobpark1080/</a></li>
-    <li>Twitter: <a href="https://twitter.com/cali_buffalo">https://twitter.com/cali_buffalo</a></li>
-  </ul>
-  <p>And of course Pusheen</p>
-  <img class="pusheen_img" src="https://wallpapercave.com/wp/wp2512717.jpg" alt='Pusheen the cat'>
 </body>
 </html>
