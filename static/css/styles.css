@@ -13,7 +13,7 @@ body {
 }
 
 li {
-  font-size:var(--fontsize);
+  font-size:var(--fontsize)/2;
 }
 
 h1 {
@@ -43,6 +43,19 @@ ul {
   padding: 2.5%;
 }
 
+.container {
+  display: block;
+}
+
+.footer {
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
 .pusheen_img {
   display: block;
   margin-left: auto;
@@ -59,6 +72,12 @@ ul {
   position:relative;
 }
 /* Clearfix (clear floats) */
+.container::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .row::after {
   content: "";
   clear: both;
