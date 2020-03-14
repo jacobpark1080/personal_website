@@ -25,8 +25,8 @@
     <div style="width:25%;display:inline-block;margin-left:5%">
       <img src="{{ url_for('static', filename='images/me.png') }}" alt='self portrait' style="width:100%;height:100%">
     </div>
-    <div style="width:66%;display:inline-block">
-      <div class="text">
+    <div style="width:66%;display:inline-block;">
+      <div class="text" style="top: -80px">
         <h1>This is Jacob's Website!</h1>
         <p>I want to make this website to practice web development skills and showcase my interests and what I am working on.</p>
         <!--<p>What is going on with me in the world can be summarized on my <a href="./blog">Blog Page</a>.</p>-->
@@ -34,17 +34,21 @@
         <p>I also want to capture the beautiful San Francisco environment while I am here, and show off my other adventures. Take a look at my <a href="./photos">Photos Page</a></p>
         <p>I also have links to my social media and professional highlights. Connect and follow me!</p>
         <ul style="width:75%">
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/jacob-p-park/">https://www.linkedin.com/in/jacob-p-park/</a></li>
-          <li>GitHub: <a href="https://github.com/jacobpark1080/">https://github.com/jacobpark1080/</a></li>
-          <li>Twitter: <a href="https://twitter.com/cali_buffalo">https://twitter.com/cali_buffalo</a></li>
+          <li><a href="https://www.linkedin.com/in/jacob-p-park/">LinkedIn</a></li>
+          <li><a href="https://github.com/jacobpark1080/">GitHub</a></li>
+          <li><a href="https://twitter.com/cali_buffalo">Twitter</a></li>
+          <li><a href="{{ url_for('static', filename='Resume2020.pdf') }}">Personal Resume</a></li>
         </ul>
       </div>
     </div>
   </div>
   <br>
   <div class="footer">
-    <p>And of course Pusheen helps makes it feel like home(page)</p>
-    <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen.jpg') }}" alt='Pusheen the cat'>
+    <p style="text-align:center">And of course Pusheen helps makes it feel like home(page)</p>
+    <p style="text-align:center">You can click on Pusheen anywhere on the website to get back to the Home Page</p>
+    <a href="https://jacobpark1080.pythonanywhere.com/">
+      <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen.jpg') }}" alt='Pusheen the cat'>
+    </a>
   </div>
 </body>
 

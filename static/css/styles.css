@@ -13,7 +13,7 @@ body {
 }
 
 li {
-  font-size:var(--fontsize)/2;
+  font-size:var(--fontsize);
 }
 
 h1 {
@@ -29,12 +29,12 @@ h2 {
 p {
   font-size:var(--fontsize);
   color: var(--textcolor);
-  text-align: center;
+  text-align: left;
 }
 
 ul {
   color: var(--textcolor);
-  text-align: center;
+  text-align: left;
 }
 
 .column {
