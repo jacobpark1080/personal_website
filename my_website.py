@@ -25,18 +25,19 @@ def blog():
 
 @app.route('/projects')
 def projects():
+    all_items = get_all_items()
+    print(all_items["items"])
     return render_template(
-        "projects_page.html"
+        "projects_page.html",data=all_items["items"]
     )
 
 @app.route('/item/new', methods=['POST'])
 def add_item():
-    # Get item from the POST body
-    req_data = request.get_json()
-    item = req_data['item']
-
+    item = request.form['item']
+    status = request.form['status']
+    
     # Add item to the list
-    res_data = helper.add_to_list(item)
+    res_data = helper.add_to_list(item,status)
 
     # Return error if item not added
     if res_data is None:
@@ -45,7 +46,7 @@ def add_item():
 
     # Return response
     response = Response(json.dumps(res_data), mimetype='application/json')
-    return response
+    return projects()
 
 @app.route('/items/all')
 def get_all_items():
@@ -54,7 +55,7 @@ def get_all_items():
 
     # Return response
     response = Response(json.dumps(res_data), mimetype='application/json')
-    return response
+    return json.loads(json.dumps(res_data))#response
 
 @app.route('/item/status', methods=['GET'])
 def get_item():

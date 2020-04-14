@@ -14,6 +14,7 @@ body {
 
 li {
   font-size:var(--fontsize);
+  list-style: none;
 }
 
 h1, h2 {
@@ -29,13 +30,22 @@ label {
 p {
   font-size:var(--fontsize);
   color: var(--textcolor);
-  text-align: left;
+  text-align: center;
 }
 
-th, td {
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  background-color: #4CAF50;
+}
+
+th, td, tr{
+  border: 5px solid black;
   font-size:var(--fontsize);
   color: var(--textcolor);
   text-align: center;
+  padding: 10px;
 }
 
 ul {
@@ -43,7 +53,18 @@ ul {
   text-align: left;
 }
 
-
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 .column {
   float: left;
   width: 45%;
@@ -70,12 +91,14 @@ ul {
 
 .pusheen_img {
   display: block;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
   width:20%;
   height:20%;
 }
 
+
+}
 .text {
   margin: 0 auto;
   text-align: center;

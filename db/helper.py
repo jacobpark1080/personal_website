@@ -5,7 +5,7 @@ NOTSTARTED = 'Not Started'
 INPROGRESS = 'In Progress'
 COMPLETED = 'Completed'
 
-def add_to_list(item):
+def add_to_list(item,status):
     try:
         conn = sqlite3.connect(DB_PATH)
 
@@ -14,11 +14,11 @@ def add_to_list(item):
         c = conn.cursor()
 
         # Keep the initial status as Not Started
-        c.execute('insert into items(item, status) values(?,?)', (item, NOTSTARTED))
+        c.execute('insert into items(item, status) values(?,?)', (item, status))
 
         # We commit to save the change
         conn.commit()
-        return {"item": item, "status": NOTSTARTED}
+        return {"item": item, "status": status}
     except Exception as e:
         print('Error: ', e)
         return None
