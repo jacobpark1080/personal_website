@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, Response
+from flask import Flask, render_template, url_for, request, Response, redirect
 import os
 from db import helper
 import json
@@ -35,7 +35,7 @@ def projects():
 def add_item():
     item = request.form['item']
     status = request.form['status']
-    
+
     # Add item to the list
     res_data = helper.add_to_list(item,status)
 
@@ -78,12 +78,13 @@ def get_item():
     response = Response(json.dumps(res_data), status=200, mimetype='application/json')
     return response
 
-@app.route('/item/update', methods=['PUT'])
+@app.route('/item/update', methods=['POST'])
 def update_status():
     # Get item from the POST body
-    req_data = request.get_json()
-    item = req_data['item']
-    status = req_data['status']
+
+
+    item = request.form['item']
+    status = request.form['status']
 
     # Update item in the list
     res_data = helper.update_status(item, status)
@@ -96,18 +97,12 @@ def update_status():
     # Return response
     response = Response(json.dumps(res_data), mimetype='application/json')
 
-    return response
+    return projects()
 
-@app.route('/item/remove', methods=['DELETE'])
+@app.route('/item/remove', methods=['POST'])
 def delete_item():
-    # Get item from the POST body
-    req_data = request.get_json()
-    item = req_data['item']
-
-    # Delete item from the list
+    item = request.form['item']
     res_data = helper.delete_item(item)
-
-    # Return error if the item could not be deleted
     if res_data is None:
         response = Response("{'error': 'Error deleting item - '" + item +  "}", status=400 , mimetype='application/json')
         return response
@@ -115,7 +110,7 @@ def delete_item():
     # Return response
     response = Response(json.dumps(res_data), mimetype='application/json')
 
-    return response
+    return redirect(url_for('projects'))
 
 @app.route('/test')
 def testing():

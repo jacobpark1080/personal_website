@@ -14,7 +14,7 @@ def add_to_list(item,status):
         c = conn.cursor()
 
         # Keep the initial status as Not Started
-        c.execute('insert into items(item, status) values(?,?)', (item, status))
+        c.execute('insert into items(item, status, date ) values(?,?,strftime("%m-%d-%Y",date("now")))', (item, status))
 
         # We commit to save the change
         conn.commit()
@@ -47,20 +47,11 @@ def get_item(item):
 
 def update_status(item, status):
     # Check if the passed status is a valid value
-    if (status.lower().strip() == 'not started'):
-        status = NOTSTARTED
-    elif (status.lower().strip() == 'in progress'):
-        status = INPROGRESS
-    elif (status.lower().strip() == 'completed'):
-        status = COMPLETED
-    else:
-        print("Invalid Status: " + status)
-        return None
 
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-        c.execute('update items set status=? where item=?', (status, item))
+        c.execute('update items set status=?,date=strftime("%m-%d-%Y",date("now"))  where item=?', (status, item))
         conn.commit()
         return {item: status}
     except Exception as e:
