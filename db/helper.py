@@ -1,6 +1,6 @@
 import sqlite3
 
-DB_PATH = './todo.db'   # Update this path accordingly
+DB_PATH = './db/todo.db'   # Update this path accordingly
 NOTSTARTED = 'Not Started'
 INPROGRESS = 'In Progress'
 COMPLETED = 'Completed'
