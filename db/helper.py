@@ -8,15 +8,8 @@ COMPLETED = 'Completed'
 def add_to_list(item,status):
     try:
         conn = sqlite3.connect(DB_PATH)
-
-        # Once a connection has been established, we use the cursor
-        # object to execute queries
         c = conn.cursor()
-
-        # Keep the initial status as Not Started
         c.execute('insert into items(item, status, date ) values(?,?,strftime("%m-%d-%Y",date("now")))', (item, status))
-
-        # We commit to save the change
         conn.commit()
         return {"item": item, "status": status}
     except Exception as e:
@@ -46,8 +39,6 @@ def get_item(item):
         return None
 
 def update_status(item, status):
-    # Check if the passed status is a valid value
-
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
