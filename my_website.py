@@ -4,6 +4,7 @@ from db import helper
 import json
 
 app = Flask(__name__)
+error = None
 
 @app.route('/')
 def home():
@@ -28,88 +29,62 @@ def projects():
     all_items = get_all_items()
     print(all_items["items"])
     return render_template(
-        "projects_page.html",data=all_items["items"]
+        "projects_page.html",err='error',data=all_items["items"]
     )
 
 @app.route('/item/new', methods=['POST'])
 def add_item():
     item = request.form['item']
     status = request.form['status']
-
-    # Add item to the list
     res_data = helper.add_to_list(item,status)
-
-    # Return error if item not added
     if res_data is None:
         response = Response("{'error': 'Item not added - " + item + "'}", status=400 , mimetype='application/json')
         return response
-
-    # Return response
     response = Response(json.dumps(res_data), mimetype='application/json')
     return projects()
 
 @app.route('/items/all')
 def get_all_items():
-    # Get items from the helper
     res_data = helper.get_all_items()
-
-    # Return response
     response = Response(json.dumps(res_data), mimetype='application/json')
-    return json.loads(json.dumps(res_data))#response
+    return json.loads(json.dumps(res_data))
 
 @app.route('/item/status', methods=['GET'])
 def get_item():
-    # Get parameter from the URL
     item_name = request.args.get('name')
-
-    # Get items from the helper
     status = helper.get_item(item_name)
-
-    # Return 404 if item not found
     if status is None:
         response = Response("{'error': 'Item Not Found - %s'}"  % item_name, status=404 , mimetype='application/json')
         return response
-
-    # Return status
     res_data = {
         'status': status
     }
-
     response = Response(json.dumps(res_data), status=200, mimetype='application/json')
     return response
 
 @app.route('/item/update', methods=['POST'])
 def update_status():
-    # Get item from the POST body
-
-
+    error = None
     item = request.form['item']
     status = request.form['status']
-
-    # Update item in the list
     res_data = helper.update_status(item, status)
-
-    # Return error if the status could not be updated
     if res_data is None:
+        error = 'update_error'
         response = Response("{'error': 'Error updating item - '" + item + ", " + status   +  "}", status=400 , mimetype='application/json')
         return response
-
-    # Return response
     response = Response(json.dumps(res_data), mimetype='application/json')
-
     return projects()
 
 @app.route('/item/remove', methods=['POST'])
 def delete_item():
+    error = None
     item = request.form['item']
     res_data = helper.delete_item(item)
     if res_data is None:
+        error = 'delete_error'
         response = Response("{'error': 'Error deleting item - '" + item +  "}", status=400 , mimetype='application/json')
         return response
-
-    # Return response
     response = Response(json.dumps(res_data), mimetype='application/json')
-
     return redirect(url_for('projects'))
 
 @app.route('/test')
