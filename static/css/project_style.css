@@ -9,12 +9,11 @@ a {
 }
 
 body {
-  background-color: powderblue;
+  background-color: #00004d;
 }
 
-li {
-  font-size:var(--fontsize);
-  list-style: none;
+form {
+  text-align: center;
 }
 
 h1, h2 {
@@ -24,7 +23,13 @@ h1, h2 {
 
 label {
   color: var(--textcolor);
+  font-size: var(--fontsize);
   text-align: center;
+}
+
+li {
+  color: var(--textcolor);
+  font-size: var(--fontsize);
 }
 
 p {
@@ -38,7 +43,6 @@ table {
   margin-right: auto;
   border-collapse: collapse;
   background-color: #4CAF50;
-
 }
 
 th, td, tr{
@@ -65,11 +69,6 @@ ul {
   font-size: var(--fontsize);
   cursor: pointer;
 }
-.column {
-  float: left;
-  width: 45%;
-  padding: 2.5%;
-}
 
 .container {
   width: 75%;
@@ -79,19 +78,6 @@ ul {
   justify-content: center;
 }
 
-.footer {
-  display: block;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-
-.form-inline {
-  display: block;
-  text-align: center;
-}
 
 .pusheen_img {
   display: block;
@@ -101,22 +87,16 @@ ul {
   height:20%;
 }
 
+.submissionfield {
+  width: 90px;
+  height: 390px;
+  padding: 5px;
+}
+
 .text {
   margin: 0 auto;
   text-align: center;
   width:50%;
   display:block;
   position:relative;
-}
-/* Clearfix (clear floats) */
-.container::after{
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
 }

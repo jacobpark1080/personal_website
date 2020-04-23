@@ -1,121 +1,123 @@
 <!doctype html>
 <html>
+  <head>
+    <title>My Personal Projects Page</title>
+    <meta name="description" content="Projects page">
+    <meta name="keywords" content="html tutorial template">
+    <!-- default favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/project_style.css') }}">
+  </head>
+  <body>
 
-<head>
-  <title>My Personal Projects Page</title>
-  <meta name="description" content="Projects page">
-  <meta name="keywords" content="html tutorial template">
-  <!-- default favicon -->
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/project_style.css') }}">
-</head>
-<body style="background-color:#00004d;">
-  <a href="https://jacobpark1080.pythonanywhere.com/" style="display:inline-block;width:25%;height:25%">
+    <a href="https://jacobpark1080.pythonanywhere.com/" style="display:inline-block;width:25%;height:25%">
     <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen.jpg') }}" alt='Pusheen the cat'>
-  </a>
-  <h1>Personal Projects</h1>
-  <p>Collection of my notebooks and projects from the coding bootcamp,
-     as well as any other personal items I have been working on.</p>
+    </a>
 
-   <h1>TODO CRUD APP</h1>
-   <div>
-     <button id="myButton" class="button" type="button" onclick="showSchedule()">Click here to check your TODO schedule</button>
-   </div>
-   <script>
-    function showSchedule() {
-      var x = document.getElementById("mySchedule");
-      var y = document.getElementById("myButton");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-        y.style.display = "none"
-      } else {
-        x.style.display = "none";
-      }
-    }
-   </script>
+    <h1>Personal Projects</h1>
 
-   <div id="mySchedule" style="display: none">
-     <div>
-       <table class="table">
-         <tr>
-           <th>DATE</th><th>ITEM</th><th>STATUS</th>
-         </tr>
-         {% for data in data %}
-         <tr>
-           <td>{{data[2]}}</td><td>{{data[0]}}</td><td>{{data[1]}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-     </div>
+    <p>Collection of my notebooks and projects from the coding bootcamp,
+    as well as any other personal items I have been working on.</p>
 
-     <p>How would you like to update your schedule?</p>
+    <ol >
+      <li style="border-style: solid; color: white; padding-bottom: 37px">
+        <h1>TODO CRUD APP</h1>
 
-     <div class="container">
-       <button style="float: left;" class="button" type="button" onclick="addItem()">Add Item</button>
-       <button style="float: center;" class="button" type="button" onclick="updateItem()">Update Item</button>
-       <button style="float: right;"class="button" type="button" onclick="removeItem()">Remove Item</button>
-     </div>
+        <div>
+          <button id="myButton" class="button" type="button" onclick="showSchedule()">Click here to check your TODO schedule</button>
+        </div>
 
-     <script>
-      function addItem() {
-        var x = document.getElementById("myAdd");
-        var y = document.getElementById("myUpdate");
-        var z = document.getElementById("myDelete");
-        x.style.display = "block";
-        y.style.display = "none";
-        z.style.display = "none";
-      }
-      function updateItem() {
-        var x = document.getElementById("myAdd");
-        var y = document.getElementById("myUpdate");
-        var z = document.getElementById("myDelete");
-        x.style.display = "none";
-        y.style.display = "block";
-        z.style.display = "none";
-      }
-      function removeItem() {
-        var x = document.getElementById("myAdd");
-        var y = document.getElementById("myUpdate");
-        var z = document.getElementById("myDelete");
-        x.style.display = "none";
-        y.style.display = "none";
-        z.style.display = "block";
-      }
-     </script>
+        <script>
+          function showSchedule() {
+            var x = document.getElementById("mySchedule");
+            var y = document.getElementById("myButton");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+              y.style.display = "none"
+            } else {
+              x.style.display = "none";
+            }
+          }
+        </script>
 
-     <div id="myAdd" class="container" style="display: none">
+        <div id="mySchedule" style="display: none">
+          <div>
+            <table class="table">
+              <tr>
+                <th>DATE</th><th>ITEM</th><th>STATUS</th>
+              </tr>
+              {% for data in data %}
+                <tr>
+                  <td>{{data[2]}}</td><td>{{data[0]}}</td><td>{{data[1]}}</td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
 
-       <form action="{{ url_for('add_item') }}" method="POST" >
-        <label for="act">Add a new label</label>
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname" value="John">
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname" value="Doe">
-        <input type="submit" value="Submit">
-       </form>
-     </div>
-     <div id="myUpdate" style="display: none">
-       <label for="act">Update an existing item</label>
-       <form action="{{ url_for('update_status') }}" method="POST">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" value="John"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" value="Doe"><br><br>
-        <input type="submit" value="Submit">
-       </form>
-     </div>
-     <div id="myDelete" class="container" style="display: none">
-       <label for="act">Remove a completed item</label>
-       <form action="{{ url_for('delete_item') }}" method="POST">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" value="John"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" value="Doe"><br><br>
-        <input type="submit" value="Submit">
-       </form>
-     </div>
+          <p>What would you like to do to your schedule?</p>
 
-  </div>
+          <div class="container">
+            <button class="button" type="button" onclick="addItem()">Add Item</button>
+            <button class="button" type="button" onclick="updateItem()">Update Item</button>
+            <button class="button" type="button" onclick="removeItem()">Remove Item</button>
+          </div>
+          <br><br>
+          <script>
+            function addItem() {
+              var x = document.getElementById("myAdd");
+              var y = document.getElementById("myUpdate");
+              var z = document.getElementById("myDelete");
+              x.style.display = "block";
+              y.style.display = "none";
+              z.style.display = "none";
+            }
+            function updateItem() {
+              var x = document.getElementById("myAdd");
+              var y = document.getElementById("myUpdate");
+              var z = document.getElementById("myDelete");
+              x.style.display = "none";
+              y.style.display = "block";
+              z.style.display = "none";
+            }
+            function removeItem() {
+              var x = document.getElementById("myAdd");
+              var y = document.getElementById("myUpdate");
+              var z = document.getElementById("myDelete");
+              x.style.display = "none";
+              y.style.display = "none";
+              z.style.display = "block";
+            }
+          </script>
+
+          <div id="myAdd" class="container" style="display: none">
+            <form action="{{ url_for('add_item') }}" method="POST">
+              <label for="item">Add a new item: </label>
+              <input type="text" id="item" name="item" value="Item">
+              <input type="text" id="status" name="status" value="Status">
+              <input class="button" type="submit" value="Submit">
+            </form>
+          </div>
+          <div id="myUpdate" class="container" style="display: none">
+            <form action="{{ url_for('update_status') }}" method="POST">
+              <label for="item">Update an existing item: </label>
+              <input type="text" id="item" name="item" value="Item">
+              <input type="text" id="status" name="status" value="Status">
+              <input class="button" type="submit" value="Submit">
+            </form>
+          </div>
+          <div id="myDelete" class="container" style="display: none">
+            <form action="{{ url_for('delete_item') }}" method="POST">
+              <label for="item">Remove a completed item: </label>
+              <input type="text" id="item" name="item" value="Item">
+              <input class="button" type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>The Error is {{err}}</p>
+      </li>
+    </ol>
 </body>
 
 </html>

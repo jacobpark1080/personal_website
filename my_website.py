@@ -29,7 +29,7 @@ def projects():
     all_items = get_all_items()
     print(all_items["items"])
     return render_template(
-        "projects_page.html",err='error',data=all_items["items"]
+        "projects_page.html",err=error,data=all_items["items"]
     )
 
 @app.route('/item/new', methods=['POST'])
@@ -41,7 +41,7 @@ def add_item():
         response = Response("{'error': 'Item not added - " + item + "'}", status=400 , mimetype='application/json')
         return response
     response = Response(json.dumps(res_data), mimetype='application/json')
-    return projects()
+    return redirect(url_for('projects'))
 
 @app.route('/items/all')
 def get_all_items():
@@ -73,7 +73,7 @@ def update_status():
         response = Response("{'error': 'Error updating item - '" + item + ", " + status   +  "}", status=400 , mimetype='application/json')
         return response
     response = Response(json.dumps(res_data), mimetype='application/json')
-    return projects()
+    return redirect(url_for('projects'))
 
 @app.route('/item/remove', methods=['POST'])
 def delete_item():
