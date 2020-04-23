@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Personal HTML Page</title>
+  <meta name="description" content="My home page">
+  <meta name="keywords" content="html tutorial template">
+  <!-- default favicon -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body style="background-color:#00004d;">
+  <div class="container">
+    <div style="float:left;width:25%;margin-left:auto">
+      <img src="{{ url_for('static', filename='images/IMG_3125.jpg') }}" alt='SF City' style="width:100%;height:100%">
+    </div>
+    <div style="float:right;width:25%;margin-right:auto">
+      <img src="{{ url_for('static', filename='images/IMG_4900.jpg') }}" alt='NY City' style="width:100%;height:100%">
+    </div>
+    <div class="text" style="margin-right:">
+      <img src="{{ url_for('static', filename='images/IMG_0947.jpg') }}" alt='The Future is...' style="width:90%;height:100%">
+    </div>
+    <br>
+    <br>
+    <div style="width:25%;display:inline-block;margin-left:5%">
+      <img src="{{ url_for('static', filename='images/me.png') }}" alt='self portrait' style="width:100%;height:100%">
+    </div>
+    <div style="width:66%;display:inline-block;">
+      <div class="text" style="top: -80px">
+        <h1>This is Jacob's Website!</h1>
+        <p>I want to make this website to practice web development skills and showcase my interests and what I am working on.</p>
+        <!--<p>What is going on with me in the world can be summarized on my <a href="./blog">Blog Page</a>.</p>-->
+        <p>I can share my personal projects as well as notebooks and the like while at the General Assembly bootcamp <a href="./projects">Projects Page</a>.</p>
+        <p>I also want to capture the beautiful San Francisco environment while I am here, and show off my other adventures. Take a look at my <a href="./photos">Photos Page</a>.</p>
+        <p>I also have links to my social media and professional highlights. Connect and follow me!</p>
+        <ul style="width:75%">
+          <li><a href="https://www.linkedin.com/in/jacob-p-park/">LinkedIn</a></li>
+          <li><a href="https://github.com/jacobpark1080/">GitHub</a></li>
+          <li><a href="https://twitter.com/cali_buffalo">Twitter</a></li>
+          <li><a href="{{ url_for('static', filename='Resume2020.pdf') }}">Personal Resume</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="footer">
+    <p style="text-align:center">And of course Pusheen helps makes it feel like home(page)</p>
+    <p style="text-align:center">You can click on Pusheen anywhere on the website to get back to the Home Page</p>
+    <a href="https://jacobpark1080.pythonanywhere.com/">
+      <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen.jpg') }}" alt='Pusheen the cat'>
+    </a>
+  </div>
+</body>
+
+</html>

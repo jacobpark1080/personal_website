@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>My Personal Projects Page</title>
+  <meta name="description" content="Projects page">
+  <meta name="keywords" content="html tutorial template">
+  <!-- default favicon -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/project_style.css') }}">
+</head>
+<body style="background-color:#00004d;">
+  <a href="https://jacobpark1080.pythonanywhere.com/" style="display:inline-block;width:25%;height:25%">
+    <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen.jpg') }}" alt='Pusheen the cat'>
+  </a>
+  <h1>Personal Projects</h1>
+  <p>Collection of my notebooks and projects from the coding bootcamp,
+     as well as any other personal items I have been working on.</p>
+
+   <ul>
+     <li>
+       <h1>TODO CRUD APP</h1>
+     </li>
+   </ul>
+   <div>
+     <button class="button" type="button" onclick="showSchedule()">Click here to check your TODO schedule</button>
+   </div>
+   <script>
+    function showSchedule() {
+      var x = document.getElementById("mySchedule");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+   </script>
+   <!-- <form action="{{ url_for('projects') }}">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+   </form>  -->
+   <div id="mySchedule" style="display: none">
+     <ul>
+       <li>
+         <table class="table">
+           <tr>
+             <th>DATE</th><th>ITEM</th><th>STATUS</th>
+           </tr>
+           {% for data in data %}
+           <tr>
+             <td>{{data[2]}}</td><td>{{data[0]}}</td><td>{{data[1]}}</td>
+          </tr>
+          {% endfor %}
+       </li>
+     </ul>
+  </div>
+</body>
+
+</html>
