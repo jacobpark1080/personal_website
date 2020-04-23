@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>My Personal Projects Page</title>
+  <meta name="description" content="Projects page">
+  <meta name="keywords" content="html tutorial template">
+  <!-- default favicon -->
+  <link rel="shortcut icon" href="http://localhost:5000/static/favicon.ico?">
+  <link rel="stylesheet" href="My%20Personal%20Projects%20Page_files/project_style.css">
+<style>@media print {#ghostery-purple-box {display:none !important}}</style></head>
+<body style="background-color:#00004d;">
+  <a href="https://jacobpark1080.pythonanywhere.com/" style="display:inline-block;width:25%;height:25%">
+    <img class="pusheen_img" src="My%20Personal%20Projects%20Page_files/home_pusheen.jpg" alt="Pusheen the cat">
+  </a>
+  <h1>Personal Projects</h1>
+  <p>Collection of my notebooks and projects from the coding bootcamp,
+     as well as any other personal items I have been working on.</p>
+
+   <h1>TODO CRUD APP</h1>
+   <div>
+     <button id="myButton" class="button" type="button" onclick="showSchedule()" style="display: none;">Click here to check your TODO schedule</button>
+   </div>
+   <script>
+    function showSchedule() {
+      var x = document.getElementById("mySchedule");
+      var y = document.getElementById("myButton");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none"
+      } else {
+        x.style.display = "none";
+      }
+    }
+    function addItem() {
+
+    }
+    function updateItem() {
+
+    }
+    function removeItem() {
+
+    }
+   </script>
+
+   <div id="mySchedule" style="display: block;">
+     <div>
+       <table class="table">
+         <tbody><tr>
+           <th>DATE</th><th>ITEM</th><th>STATUS</th>
+         </tr>
+         
+         <tr>
+           <td>None</td><td>me</td><td>tired</td>
+        </tr>
+        
+         <tr>
+           <td>04-14-2020</td><td>Updating Website</td><td>Done</td>
+        </tr>
+        
+         <tr>
+           <td>None</td><td>hey</td><td>Not Started</td>
+        </tr>
+        
+         <tr>
+           <td>None</td><td>A</td><td>cool</td>
+        </tr>
+        
+         <tr>
+           <td>04-14-2020</td><td>bunny</td><td>done</td>
+        </tr>
+        
+         <tr>
+           <td>04-14-2020</td><td>this</td><td>bunny1</td>
+        </tr>
+        
+         <tr>
+           <td>04-14-2020</td><td>hi</td><td>there</td>
+        </tr>
+        
+      </tbody></table>
+     </div>
+     <p>How would you like to update your schedule?</p>
+     <div style="width: 75%; margin: 0 auto">
+       <button style="float: left;" class="button" type="button" onclick="addItem()">Add Item</button>
+       <button style="float: center;" class="button" type="button" onclick="updateItem()">Update Item</button>
+       <button style="float: right;" class="button" type="button" onclick="removeItem()">Remove Item</button>
+     </div>
+     <!-- <form action="/projects">
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" value="John"><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" value="Doe"><br><br>
+      <input type="submit" value="Submit">
+     </form>  -->
+  </div>
+
+
+</body></html>

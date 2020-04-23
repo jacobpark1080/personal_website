@@ -72,11 +72,7 @@ ul {
 }
 
 .container {
-  width: 75%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: block;
 }
 
 .footer {
@@ -100,6 +96,8 @@ ul {
   width:20%;
   height:20%;
 }
+
+
 
 .text {
   margin: 0 auto;

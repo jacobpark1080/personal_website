@@ -32,15 +32,6 @@
         x.style.display = "none";
       }
     }
-    function addItem() {
-
-    }
-    function updateItem() {
-
-    }
-    function removeItem() {
-
-    }
    </script>
 
    <div id="mySchedule" style="display: none">
@@ -56,19 +47,74 @@
         {% endfor %}
       </table>
      </div>
-     <div style="width: 50%; margin: 0 auto">
-       <p>How would you like to update your schedule?</p>
+
+     <p>How would you like to update your schedule?</p>
+
+     <div class="container">
        <button style="float: left;" class="button" type="button" onclick="addItem()">Add Item</button>
        <button style="float: center;" class="button" type="button" onclick="updateItem()">Update Item</button>
        <button style="float: right;"class="button" type="button" onclick="removeItem()">Remove Item</button>
      </div>
-     <!-- <form action="{{ url_for('projects') }}">
-      <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname" value="John"><br>
-      <label for="lname">Last name:</label><br>
-      <input type="text" id="lname" name="lname" value="Doe"><br><br>
-      <input type="submit" value="Submit">
-     </form>  -->
+
+     <script>
+      function addItem() {
+        var x = document.getElementById("myAdd");
+        var y = document.getElementById("myUpdate");
+        var z = document.getElementById("myDelete");
+        x.style.display = "block";
+        y.style.display = "none";
+        z.style.display = "none";
+      }
+      function updateItem() {
+        var x = document.getElementById("myAdd");
+        var y = document.getElementById("myUpdate");
+        var z = document.getElementById("myDelete");
+        x.style.display = "none";
+        y.style.display = "block";
+        z.style.display = "none";
+      }
+      function removeItem() {
+        var x = document.getElementById("myAdd");
+        var y = document.getElementById("myUpdate");
+        var z = document.getElementById("myDelete");
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "block";
+      }
+     </script>
+
+     <div id="myAdd" class="container" style="display: none">
+
+       <form action="{{ url_for('add_item') }}" method="POST" >
+        <label for="act">Add a new label</label>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" value="John">
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname" value="Doe">
+        <input type="submit" value="Submit">
+       </form>
+     </div>
+     <div id="myUpdate" style="display: none">
+       <label for="act">Update an existing item</label>
+       <form action="{{ url_for('update_status') }}" method="POST">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+       </form>
+     </div>
+     <div id="myDelete" class="container" style="display: none">
+       <label for="act">Remove a completed item</label>
+       <form action="{{ url_for('delete_item') }}" method="POST">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+       </form>
+     </div>
+
   </div>
 </body>
 
