@@ -44,7 +44,6 @@ def update_status(item, status):
         c = conn.cursor()
 
         if c.execute(f"SELECT EXISTS (SELECT * FROM items WHERE item={item})"):
-            print('hey')
             c.execute(f'update items set status={status},date=strftime("%m-%d-%Y",date("now"))  where item={item}')
             conn.commit()
             return {item: status}

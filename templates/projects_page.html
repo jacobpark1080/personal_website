@@ -115,7 +115,8 @@
           </script>
 
           <div id="myAdd" class="container" style="display: none">
-            <form action="{{ url_for('add_item') }}" method="POST">
+            <!-- Cannot add an Item entry named "item" or Status entry named "status". Build validation -->
+            <form action="{{ url_for('add_item') }}" method="POST" onsubmit="return validateValues()">
               <label for="item">Add a new item: </label>
               <input type="text" id="item" name="item" value="Item">
               <input type="text" id="status" name="status" value="Status">

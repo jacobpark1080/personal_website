@@ -31,7 +31,9 @@ li {
   color: var(--textcolor);
   font-size: var(--fontsize);
 }
-
+input {
+  font-size: var(--fontsize);
+}
 p {
   font-size:var(--fontsize);
   color: var(--textcolor);
