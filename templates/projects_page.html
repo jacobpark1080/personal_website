@@ -10,8 +10,7 @@
   </head>
 
   <body>
-
-    <a href="https://jacobpark1080.pythonanywhere.com/" style="display:inline-block;width:25%;height:25%">
+    <a href="{{ url_for('home') }}" style="display:inline-block;width:25%;height:25%">
     <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen.jpg') }}" alt='Pusheen the cat'>
     </a>
 
@@ -80,7 +79,7 @@
             </form>
           </div>
           <div id="myDelete" class="container" style="display: none">
-            <form action="{{ url_for('delete_item') }}" method="POST">
+            <form action="{{ url_for('delete_item') }}" method="POST" onsubmit="return validateDelete();">
               <label for="item">Remove a completed item: </label>
               <input type="text" id="deleteItem" name="item" style="margin: 5px">
               <input class="button" type="submit" value="Submit" style="margin-top: 15px">

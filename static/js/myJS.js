@@ -30,7 +30,7 @@ function validateUpdate() {
     return false
   }
 }
-         
+
 function validateDelete() {
   var formValues = document.getElementById("deleteItem").value;
   if (formValues=="Checking") {
@@ -38,6 +38,7 @@ function validateDelete() {
     return false
   }
 }
+
 function addItem() {
   var x = document.getElementById("myAdd");
   var y = document.getElementById("myUpdate");
