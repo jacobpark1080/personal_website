@@ -31,7 +31,6 @@ def projects():
     except:
         message = None
     all_items = get_all_items()
-    print(message)
     return render_template(
         "projects_page.html",err=message,data=all_items["items"]
     )

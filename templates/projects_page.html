@@ -7,9 +7,10 @@
     <!-- default favicon -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/project_style.css') }}">
+    <!-- Javascript -->
+    <script src="/static/js/myJS.js"></script>
   </head>
   <body>
-
     <a href="https://jacobpark1080.pythonanywhere.com/" style="display:inline-block;width:25%;height:25%">
     <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen.jpg') }}" alt='Pusheen the cat'>
     </a>
@@ -19,7 +20,7 @@
     <p>Collection of my notebooks and projects from the coding bootcamp,
     as well as any other personal items I have been working on.</p>
 
-    <ol >
+    <ol>
       <li style="border-style: solid; color: white; padding-bottom: 37px">
         <h1>TODO CRUD APP</h1>
         <div id="error_add" style="display: none">
@@ -36,7 +37,6 @@
           if (url!="") {
             const urlParams = new URLSearchParams(url);
             const urlParamsMessage = urlParams.get('message');
-            console.log(urlParamsMessage);
             if (urlParamsMessage=="add_error"){
               document.getElementById("error_add").style.display = "block";
             } else if (urlParamsMessage=="update_error") {
@@ -47,23 +47,11 @@
           }
         </script>
 
-        <!--
+        <!-- Removed Click to see Schedule functionality
         <div>
           <button id="myButton" class="button" type="button" onclick="showSchedule()">Click here to check your TODO schedule</button>
         </div>
-        <script>
-
-          function showSchedule() {
-            var x = document.getElementById("mySchedule");
-            var y = document.getElementById("myButton");
-            if (x.style.display === "none") {
-              x.style.display = "block";
-              y.style.display = "none"
-            } else {
-              x.style.display = "none";
-            }
-          }
-        </script> -->
+        -->
 
         <div id="mySchedule" >
           <div>
@@ -88,43 +76,44 @@
           </div>
           <br><br>
           <script>
-            function addItem() {
-              var x = document.getElementById("myAdd");
-              var y = document.getElementById("myUpdate");
-              var z = document.getElementById("myDelete");
-              x.style.display = "block";
-              y.style.display = "none";
-              z.style.display = "none";
-            }
-            function updateItem() {
-              var x = document.getElementById("myAdd");
-              var y = document.getElementById("myUpdate");
-              var z = document.getElementById("myDelete");
-              x.style.display = "none";
-              y.style.display = "block";
-              z.style.display = "none";
-            }
-            function removeItem() {
-              var x = document.getElementById("myAdd");
-              var y = document.getElementById("myUpdate");
-              var z = document.getElementById("myDelete");
-              x.style.display = "none";
-              y.style.display = "none";
-              z.style.display = "block";
-            }
+          function addItem() {
+            var x = document.getElementById("myAdd");
+            var y = document.getElementById("myUpdate");
+            var z = document.getElementById("myDelete");
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "none";
+          }
+          function updateItem() {
+            var x = document.getElementById("myAdd");
+            var y = document.getElementById("myUpdate");
+            var z = document.getElementById("myDelete");
+            x.style.display = "none";
+            y.style.display = "block";
+            z.style.display = "none";
+          }
+          function removeItem() {
+            var x = document.getElementById("myAdd");
+            var y = document.getElementById("myUpdate");
+            var z = document.getElementById("myDelete");
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "block";
+          }
+
           </script>
 
           <div id="myAdd" class="container" style="display: none">
             <!-- Cannot add an Item entry named "item" or Status entry named "status". Build validation -->
-            <form action="{{ url_for('add_item') }}" method="POST" onsubmit="return validateValues()">
+            <form action="{{ url_for('add_item') }}" method="POST" onsubmit="return validateValues();">
               <label for="item">Add a new item: </label>
-              <input type="text" id="item" name="item" value="Item">
-              <input type="text" id="status" name="status" value="Status">
+              <input type="text" id="addItem" name="item" value="Checking">
+              <input type="text" id="addStatus" name="status" value="This">
               <input class="button" type="submit" value="Submit">
             </form>
           </div>
           <div id="myUpdate" class="container" style="display: none">
-            <form action="{{ url_for('update_status') }}" method="POST">
+            <form id="updateForm" action="{{ url_for('update_status') }}" method="POST">
               <label for="item">Update an existing item: </label>
               <input type="text" id="item" name="item" value="Item">
               <input type="text" id="status" name="status" value="Status">
@@ -132,12 +121,21 @@
             </form>
           </div>
           <div id="myDelete" class="container" style="display: none">
-            <form action="{{ url_for('delete_item') }}" method="POST">
+            <form id="deleteForm" action="{{ url_for('delete_item') }}" method="POST">
               <label for="item">Remove a completed item: </label>
               <input type="text" id="item" name="item" value="Item">
               <input class="button" type="submit" value="Submit">
             </form>
           </div>
+          <script>
+          function validateValues() {
+            var formValues = document.getElementById("addItem").value;
+            if (formValues=="Checking") {
+              alert("Item value cannot be 'item'")
+              return false
+            }
+          }
+        </script>
         </div>
       </li>
       <li>
