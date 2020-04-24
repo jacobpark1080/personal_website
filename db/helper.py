@@ -43,7 +43,7 @@ def update_status(item, status):
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
 
-        if c.execute(f"SELECT EXISTS (SELECT * items WHERE item={item})"):
+        if c.execute(f"SELECT EXISTS (SELECT * FROM items WHERE item={item})"):
             print('hey')
             c.execute(f'update items set status={status},date=strftime("%m-%d-%Y",date("now"))  where item={item}')
             conn.commit()
@@ -59,7 +59,7 @@ def delete_item(item):
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-        if c.execute("SELECT EXISTS (SELECT * items WHERE item=?)",(item)):
+        if c.execute("SELECT EXISTS (SELECT * FROM items WHERE item=?)",(item)):
             c.execute('delete from items where item=?', (item,))
             conn.commit()
             return {'item': item}
