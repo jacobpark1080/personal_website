@@ -9,7 +9,7 @@ def add_to_list(item,status):
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-        c.execute('insert into items(item, status, date ) values(?,?,strftime("%m-%d-%Y",date("now")))', (item, status))
+        c.execute(f"insert into items(item, status, date) values('{item}','{status}',strftime('%m-%d-%Y',date('now')))")
         conn.commit()
         return {"item": item, "status": status}
     except Exception as e:
@@ -42,9 +42,8 @@ def update_status(item, status):
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-
-        if c.execute(f"SELECT EXISTS (SELECT * FROM items WHERE item={item})"):
-            c.execute(f'update items set status={status},date=strftime("%m-%d-%Y",date("now"))  where item={item}')
+        if c.execute(f"SELECT EXISTS (SELECT * FROM items WHERE item='{item}')"):
+            c.execute(f"update items set status='{status}',date=strftime('%m-%d-%Y',date('now')) where item='{item}'")
             conn.commit()
             return {item: status}
         else:
@@ -58,8 +57,8 @@ def delete_item(item):
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-        if c.execute("SELECT EXISTS (SELECT * FROM items WHERE item=?)",(item)):
-            c.execute('delete from items where item=?', (item,))
+        if c.execute(f"SELECT EXISTS (SELECT * FROM items WHERE item='{item}')"):
+            c.execute(f"DELETE FROM items WHERE item='{item}'")
             conn.commit()
             return {'item': item}
         else:
