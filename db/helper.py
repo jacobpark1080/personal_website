@@ -42,9 +42,15 @@ def update_status(item, status):
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-        c.execute('update items set status=?,date=strftime("%m-%d-%Y",date("now"))  where item=?', (status, item))
-        conn.commit()
-        return {item: status}
+
+        if c.execute(f"SELECT EXISTS (SELECT * items WHERE item={item})"):
+            print('hey')
+            c.execute(f'update items set status={status},date=strftime("%m-%d-%Y",date("now"))  where item={item}')
+            conn.commit()
+            return {item: status}
+        else:
+            print('Error: Item Not Found')
+            return None
     except Exception as e:
         print('Error: ', e)
         return None
@@ -53,9 +59,13 @@ def delete_item(item):
     try:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-        c.execute('delete from items where item=?', (item,))
-        conn.commit()
-        return {'item': item}
+        if c.execute("SELECT EXISTS (SELECT * items WHERE item=?)",(item)):
+            c.execute('delete from items where item=?', (item,))
+            conn.commit()
+            return {'item': item}
+        else:
+            print('Error: Item Not Found')
+            return None
     except Exception as e:
         print('Error: ', e)
         return None
