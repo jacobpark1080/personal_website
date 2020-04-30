@@ -54,6 +54,12 @@ ul {
   display: block;
 }
 
+.flex-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
 .footer {
   display: block;
   left: 0;
