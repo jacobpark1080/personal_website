@@ -44,14 +44,9 @@ ul {
 }
 
 
-.column {
-  float: left;
-  width: 45%;
-  padding: 2.5%;
-}
-
 .container {
-  display: block;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .flex-box {
@@ -88,16 +83,4 @@ ul {
   width:50%;
   display:block;
   position:relative;
-}
-/* Clearfix (clear floats) */
-.container::after{
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
 }
