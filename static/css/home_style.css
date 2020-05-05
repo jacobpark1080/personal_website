@@ -1,10 +1,9 @@
 :root {
-  --fontsize: 150%;
   --textcolor: white;
 }
 
 a {
-  font-size:var(--fontsize)/2;
+  font-size: x-large;
   color:red;
 }
 
@@ -12,6 +11,12 @@ body {
   background-color: powderblue;
 }
 
+button {
+  margin-right: 10px;
+  height: 100px;
+  width: 500px;
+  background-color: green;
+}
 li {
   font-size:var(--fontsize);
 }
@@ -27,7 +32,7 @@ label {
 }
 
 p {
-  font-size:var(--fontsize);
+  font-size: x-large;
   color: var(--textcolor);
   text-align: left;
 }
