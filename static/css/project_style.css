@@ -1,5 +1,4 @@
 :root {
-  --fontsize: 150%;
   --textcolor: white;
 }
 
@@ -30,7 +29,8 @@ label {
 
 li {
   color: var(--textcolor);
-  font-size: var(--fontsize);
+  border-style: solid;
+  color: white;
 }
 input {
   font-size: var(--fontsize);
@@ -86,7 +86,7 @@ ul {
 .pusheen_img {
   display: block;
   margin-left: 0;
-  margin-right: auto;
+  margin-right: 0;
   width:20%;
   height:20%;
 }

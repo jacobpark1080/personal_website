@@ -8,25 +8,10 @@ a {
 }
 
 body {
-  background-color: powderblue;
+  background-color: #00004d;
 }
 
-button {
-  margin-right: 10px;
-  height: 100px;
-  width: 500px;
-  background-color: green;
-}
-li {
-  font-size:var(--fontsize);
-}
-
-h1, h2 {
-  color: var(--textcolor);
-  text-align: center;
-}
-
-label {
+h1 {
   color: var(--textcolor);
   text-align: center;
 }
@@ -37,21 +22,9 @@ p {
   text-align: left;
 }
 
-th, td {
-  font-size:var(--fontsize);
-  color: var(--textcolor);
-  text-align: center;
-}
-
 ul {
   color: var(--textcolor);
   text-align: left;
-}
-
-
-.container {
-  display: flex;
-  flex-flow: row nowrap;
 }
 
 .flex-box {
@@ -66,11 +39,6 @@ ul {
   right: 0;
   bottom: 0;
   width: 100%;
-  text-align: center;
-}
-
-.form-inline {
-  display: block;
   text-align: center;
 }
 
