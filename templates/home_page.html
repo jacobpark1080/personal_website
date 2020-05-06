@@ -7,43 +7,47 @@
   <!-- default favicon -->
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}?">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home_style.css') }}">
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
 </head>
 
 <body>
   <div class="flex-box">
-    <div style="position: relative; width:25%; height:auto; margin-right: 1%">
+    <div style="width:25%; height:auto; margin-right: 1%">
       <img src="{{ url_for('static', filename='images/IMG_3125.jpg') }}" alt='SF City' style="width:100%; height:100%;">
     </div>
-    <div style="position: relative; width:50%; height:auto;">
+    <div style="width:50%; height:auto;">
       <img src="{{ url_for('static', filename='images/IMG_0947.jpg') }}" alt='The Future is...' style="width:100%; height:100%;">
     </div>
-    <div style="position: relative; width:25%; height:auto; margin-left: 1%">
+    <div style="width:25%; height:auto; margin-left: 1%">
       <img src="{{ url_for('static', filename='images/IMG_4900.jpg') }}" alt='NY City' style="width:100%; height:100%;">
     </div>
   </div>
   <br>
   <br>
   <div class="flex-box">
-    <div style="width:33%; height: auto;">
+    <div style="width:33%;height: auto;">
       <img src="{{ url_for('static', filename='images/me.png') }}" alt='self portrait' style="width:75%;height:auto;float:right;">
     </div>
-    <div style="width:66%;height: auto;display: inline-block">
+    <div style="width:66%;height: auto;">
       <div class="text">
         <h1>Hey hey, this is Jacob's Website!</h1>
         <p>I want to make this website to practice web development skills and showcase my interests and what I am working on.</p>
         <!--<p>What is going on with me in the world can be summarized on my <a href="./blog">Blog Page</a>.</p>-->
         <p>I can share my personal projects as well as notebooks and the like on my <a href="./projects">Projects Page</a>.</p>
         <p>I also want to capture the beautiful San Francisco environment while I am here, and show off my other adventures. Take a look at my <a href="./photos">Photos Page</a>.</p>
-        <p>I also have links to my social media and professional highlights. Connect and follow me!</p>
-        <ul style="width:75%">
-          <li><a href="https://www.linkedin.com/in/jacob-p-park/">LinkedIn</a></li>
-          <li><a href="https://github.com/jacobpark1080/">GitHub</a></li>
-          <li><a href="https://twitter.com/cali_buffalo">Twitter</a></li>
-          <li><a href="{{ url_for('static', filename='Resume2020.pdf') }}">Personal Resume</a></li>
-        </ul>
       </div>
+
     </div>
+  </div>
+  <div>
+    <p style="text-align: center;">I also have links to my social media and professional highlights. Connect and follow me!</p>
+    <div class="flex-box">
+      <button onclick="window.open('https://www.linkedin.com/in/jacob-p-park/')"><img src="{{ url_for('static', filename='linkedin.ico') }}" class="social_img"> <div><p class="social_text">LinkedIn</p></div></button>
+      <button onclick="window.open('https://github.com/jacobpark1080/')"><img src="{{ url_for('static', filename='github.ico') }}" class="social_img"> <div><p class="social_text">Github</p></div></button>
+      <button onclick="window.open('https://twitter.com/cali_buffalo')"><img src="{{ url_for('static', filename='favicon.ico') }}" class="social_img"> <div>Twitter</div></button>
+      <button onclick="window.open('{{ url_for('static', filename='Resume2020.pdf') }}')"><img src="{{ url_for('static', filename='favicon.ico') }}" class="social_img"> <div>Personal Resume</div></button>
+    </div>
+
+
   </div>
   <br>
   <div class="footer">
