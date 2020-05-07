@@ -33,7 +33,7 @@ def api_filter():
 
     if not (id or published or author):
         return page_not_found(404)
-        
+
     results = helper.api_filter(id,published,author)
 
     return jsonify(results)
@@ -82,9 +82,13 @@ def projects():
         message = request.args['message']
     except:
         message = None
-    all_items = get_all_items()
+    all_items = helper.get_all_items()
+    results = helper.api_all()
+
+    result_titles = [i['title'] for i in results]
+    print(result_titles)
     return render_template(
-        "projects_page.html",err=message,data=all_items["items"]
+        "projects_page.html",err=message,data=all_items["items"],data2=result_titles
     )
 
 @app.route('/item/new', methods=['POST'])
@@ -106,7 +110,6 @@ def update_status():
     if res_data is None:
         return redirect(url_for('projects',message='update_error'))
     response = Response(json.dumps(res_data), mimetype='application/json')
-    print(response)
     return redirect(url_for('projects'))
 
 @app.route('/item/remove', methods=['POST'])

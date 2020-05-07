@@ -91,7 +91,17 @@
       <li>
         <div style="text-align: center;">
           <p>This project will be how to access an API</p>
-          <a href="{{ url_for('apihome') }}">API here</a>
+          <h1>Distant Reading Archive</h1><p>This site is a prototype API for distant reading of science fiction novels.</p>
+          <a href="{{ url_for('api_all') }}">Click to return all entries in library</a>
+          <br>
+          <div class="dropdown">
+            <button class="dropbtn">Pick a book you would like to learn about</button>
+              <div class="dropdown-content">
+                {% for title in data2 %}
+                  <a href="#">{{title}}</p>
+                {% endfor %}
+              </div>
+          </div>
         </div>
       </li>
     </ol>
