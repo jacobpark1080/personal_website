@@ -17,11 +17,17 @@ button {
   width: 10%;
   height: auto;
   padding: .5%;
+  background-color: white;
 }
 
 h1 {
   color: var(--textcolor);
   text-align: center;
+}
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 150%; /* 2 */
 }
 
 p {
@@ -30,6 +36,20 @@ p {
   text-align: left;
 }
 
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+
+small {
+  font-size: 80%;
+}
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
 
 ul {
   color: var(--textcolor);
