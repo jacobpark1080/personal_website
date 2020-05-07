@@ -10,9 +10,10 @@
   </head>
 
   <body>
-    <a href="{{ url_for('home') }}" style="display:inline-block;width:25%;height:25%;float: right">
-      <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen.jpg') }}" alt='Pusheen the cat'>
-    </a>
+    <button onclick="window.location = '{{ url_for('home') }}'">
+      <img class="pusheen_img" src="{{ url_for('static', filename='images/home_pusheen_copy.jpeg') }}" alt='Pusheen the cat'>
+    </button>
+
     <br>
     <h1>Personal Projects</h1>
 

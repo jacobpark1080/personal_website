@@ -3,7 +3,7 @@
 }
 
 a {
-  font-size:var(--fontsize)/2;
+  font-size: x-large;
   color:red;
   text-align: center;
 }
@@ -16,14 +16,14 @@ form {
   text-align: center;
 }
 
-h1, h2 {
+h1 {
   color: var(--textcolor);
   text-align: center;
 }
 
 label {
   color: var(--textcolor);
-  font-size: var(--fontsize);
+  font-size: x-large;
   text-align: center;
 }
 
@@ -32,6 +32,7 @@ li {
   border-style: solid;
   color: white;
 }
+
 input {
   font-size: var(--fontsize);
 }
@@ -50,14 +51,14 @@ table {
 }
 
 th, td, tr{
-  border: 5px solid black;
-  font-size:var(--fontsize);
+  border: 5px solid white;
+  font-size: x-large;
   color: var(--textcolor);
   text-align: center;
   padding: 10px;
 }
 
-ul {
+ol {
   color: var(--textcolor);
   text-align: left;
 }
@@ -70,7 +71,7 @@ ul {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  font-size: var(--fontsize);
+  font-size: x-large;
   cursor: pointer;
 }
 
