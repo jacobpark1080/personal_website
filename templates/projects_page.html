@@ -95,14 +95,17 @@
           <a href="{{ url_for('api_all') }}">Click to return all entries in library</a>
           <br>
           <div class="dropdown">
-            <button class="dropbtn">Pick a book you would like to learn about</button>
+            <button class="dropbtn">Pick a book you would like to look up</button>
               <div class="dropdown-content">
                 {% for title in data2 %}
-                  <a href="#">{{title}}</p>
+                  <a href="api/v1/resources/books?title={{title}}">{{title}}</a>
                 {% endfor %}
               </div>
           </div>
         </div>
+      </li>
+      <li>
+        
       </li>
     </ol>
     <!-- Javascript -->

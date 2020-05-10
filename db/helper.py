@@ -87,7 +87,7 @@ def api_all():
     return all_books
 
 
-def api_filter(id=None,published=None,author=None):
+def api_filter(id=None,published=None,author=None,title=None):
     query = "SELECT * FROM books WHERE"
     to_filter = []
 
@@ -100,6 +100,9 @@ def api_filter(id=None,published=None,author=None):
     if author:
         query += ' author=? AND'
         to_filter.append(author)
+    if title:
+        query += ' title=? AND'
+        to_filter.append(title)
 
     query = query[:-4] + ';'
 

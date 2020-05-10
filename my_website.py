@@ -30,11 +30,12 @@ def api_filter():
     id = query_parameters.get('id')
     published = query_parameters.get('published')
     author = query_parameters.get('author')
+    title = query_parameters.get('title')
 
-    if not (id or published or author):
+    if not (id or published or author or title):
         return page_not_found(404)
 
-    results = helper.api_filter(id,published,author)
+    results = helper.api_filter(id,published,author,title)
 
     return jsonify(results)
 
